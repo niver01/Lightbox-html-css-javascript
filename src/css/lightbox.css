@@ -1,0 +1,346 @@
+.lightbox {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  background-color: rgba(5, 5, 5, 0.9);
+  width: 100%;
+  min-height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: all ease 0.5s;
+  z-index: 1500;
+}
+
+.lightbox--active {
+  opacity: 1;
+  /* left: 0; */
+  visibility: visible;
+}
+
+/* estilos lightbox_toolbar */
+
+.lightbox_toolbar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  opacity: 0.6;
+  padding: 0 20px;
+  z-index: 300;
+}
+
+.lightbox_toolbar_counter {
+  color: var(--colorBlack5);
+}
+
+/* estilos lightbox_fullscreen, lightbox_download,  lightbox_close */
+
+.lightbox_fullscreen,
+.lightbox_download,
+.lightbox_close {
+  display: inline-block;
+  width: 45px;
+  height: 53px;
+  padding: 10px 0;
+  font-size: 1.3em;
+  text-align: center;
+  cursor: pointer;
+}
+
+.lightbox_fullscreen img,
+.lightbox_download img,
+.lightbox_close img {
+  --size: 26px;
+  width: var(--size);
+  height: var(--size);
+  object-fit: cover;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox_fullscreen:hover img,
+.lightbox_download:hover img,
+.lightbox_close:hover img {
+  opacity: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  .lightbox_fullscreen {
+    display: none;
+  }
+}
+
+/* estilos lightbox_slider */
+
+.lightbox section {
+  margin: auto;
+}
+
+.lightbox_slider {
+  /* margin: auto; */
+  width: 98%;
+  max-width: 50em;
+  height: 90vh;
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.5s ease, opacity 0.7s ease;
+  /* , width .3s ease, height .3s ease; */
+  /* position: relative; */
+  /* overflow: hidden; */
+  /* padding: 10px; */
+}
+
+@media screen and (max-width: 376px) {
+  .lightbox_slider {
+    height: 17em;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  .lightbox_slider {
+    width: 22em;
+    height: 20em;
+  }
+}
+
+.lightbox_slider--active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* estilos lightbox_slider_nav */
+
+.lightbox_slider_nav {
+  display: flex;
+  align-items: center;
+  width: 200%;
+  height: 100%;
+  /* overflow: hidden; */
+}
+
+.lightbox_slider_nav--ani {
+  transition: all 1s;
+}
+
+/* estilos lightbox_slider_item */
+
+.lightbox_slider_item,
+.lightbox_slider_figure {
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox_slider_item {
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+  /* height: 20em; */
+  /* margin-right: 40px */
+}
+
+.lightbox_slider_item--active {
+  opacity: 1;
+  /*! width: 121%; */
+}
+
+.lightbox_slider_figure {
+  border-radius: 5px;
+  position: relative;
+}
+
+.lightbox_slider_figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* opacity: .7 */
+}
+
+.lightbox_slider_figure figcaption {
+  position: absolute;
+  width: 90%;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 10px 4px;
+  text-align: center;
+  transition: background 0.3s ease, bottom 1s ease;
+}
+
+.lightbox_slider_figure figcaption p {
+  font-size: 0.9em;
+}
+
+.lightbox_slider_item--active .lightbox_slider_figure figcaption {
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 1024px) {
+  .lightbox_slider_figure figcaption {
+    width: 100%;
+  }
+
+  .lightbox_slider_item--active .lightbox_slider_figure figcaption {
+    background-color: transparent;
+  }
+}
+
+/* lightbox_botton */
+
+.lightbox_botton {
+}
+
+.lightbox_botton div {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /* padding: .3em 0; */
+  width: 45px;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.lightbox_botton div:hover {
+  opacity: 1;
+}
+
+.lightbox_botton img {
+  --size: 26px; /*45pc*/
+  display: block;
+  margin: 0 auto;
+  width: var(--size);
+  height: var(--size);
+  object-fit: cover;
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+}
+
+.lightbox_botton div:hover img {
+  opacity: 1;
+}
+
+.lightbox_botton-left {
+  left: -10%;
+  transition: left 1s ease;
+}
+
+.lightbox_botton-right {
+  right: -10%;
+  transition: right 1s ease;
+}
+
+.lightbox_botton--active .lightbox_botton-left {
+  left: 20px;
+}
+
+.lightbox_botton--active .lightbox_botton-right {
+  right: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .lightbox_botton div {
+    background-color: rgba(62, 64, 66, 0.4);
+    opacity: 1;
+  }
+}
+
+/* estilos lightbox-image */
+
+.lightbox-image {
+  position: absolute;
+  /* bottom: -36px; deste javascript*/
+  left: 0;
+  width: 100%;
+  padding: 6px 20px;
+  background-color: var(--colorBlack2);
+  opacity: 0.6;
+  transition: bottom 0.5s ease, opacity 0.5s ease;
+}
+
+.lightbox-image--active {
+  opacity: 1;
+}
+
+.lightbox-image_nav {
+  width: 100%;
+  display: flex;
+  /* grid-auto-flow: column; */
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /* grid-template-columns: repeat(16, 70px); */
+  /* grid-gap: 5px; */
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.lightbox-image--active .lightbox-image_nav {
+  /* bottom: 0; */
+  opacity: 1;
+}
+
+.lightbox-image_item {
+  --size: 70px;
+  width: var(--size);
+  height: var(--size);
+  /*! margin: 3px; */
+  /*transform: scale(.8);*/
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid transparent;
+  transition: all 1s ease;
+}
+
+.lightbox-image_item--active {
+  border-color: var(--colorPrimario);
+}
+
+.lightbox-image_item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--colorBlack3);
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+}
+
+.lightbox-image_item--active::before {
+  opacity: 0;
+}
+
+.lightbox-image_item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* lightbox-image_toggle */
+.lightbox-image_toggle {
+  position: absolute;
+  right: 20px;
+  top: -42px;
+  background-color: var(--colorBlack2);
+  width: 45px;
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.lightbox-image_toggle img {
+  --size: 26px;
+  width: var(--size);
+  height: var(--size);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-image_toggle:hover img {
+  opacity: 1;
+}
