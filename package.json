@@ -1,20 +1,23 @@
 {
   "name": "Lightbox-html-css-javascript",
   "version": "1.0.0",
-  "description": "Lightbox",
+  "description": "https://niver01.github.io/Lightbox-html-css-javascript/src/",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "gh-pages -d src"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/niver01/Lightbox-html-css-javascript.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "@niver01",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/niver01/Lightbox-html-css-javascript/issues"
   },
-  "homepage": "https://github.com/niver01/Lightbox-html-css-javascript#readme"
+  "homepage": "https://github.com/niver01/Lightbox-html-css-javascript#readme",
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
 }
