@@ -1,6 +1,6 @@
 # Lightbox-html-css-javascript
 
-https://niver01.github.io/Lightbox-html-css-javascript/src/
+https://niver01.github.io/Lightbox-html-css-javascript
 
 <p align="center">
   <img src="./image/ligthbox-desktop-1.png" />
